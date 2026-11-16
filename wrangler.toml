@@ -1,0 +1,13 @@
+name = "dewagriyaasri-home"
+main = "worker.mjs"
+compatibility_date = "2026-10-19"
+account_id = "0716158c74e476d7a597b2de27f35728"
+workers_dev = false
+
+routes = [
+  { pattern = "dewagriyaasri.com", custom_domain = true }
+]
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
