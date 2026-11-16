@@ -1,0 +1,10 @@
+# Header keamanan untuk aset statis yang dilayani langsung oleh Cloudflare Workers Static Assets
+# (permintaan yang cocok dengan file di public/ tidak melewati worker.mjs).
+# Nilainya sama dengan securityHeaders di worker.mjs, tanpa Content-Type.
+/*
+  Cache-Control: public, max-age=60
+  Content-Security-Policy: default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src https: data:; script-src 'self' 'unsafe-inline'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Permissions-Policy: camera=(), microphone=(), geolocation=()

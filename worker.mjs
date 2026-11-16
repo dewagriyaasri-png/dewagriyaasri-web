@@ -17,10 +17,10 @@ export default {
       for (const [key, value] of Object.entries(securityHeaders)) headers.set(key, value);
       return new Response(request.method === "HEAD" ? null : response.body, { status: response.status, headers });
     }
-    if (["/robots.txt", "/sitemap.xml", "/favicon.svg"].includes(url.pathname)) {
+    if (["/robots.txt", "/sitemap.xml", "/llms.txt", "/favicon.svg"].includes(url.pathname)) {
       const response = await env.ASSETS.fetch(new Request(new URL(url.pathname, request.url), request));
       const headers = new Headers(response.headers);
-      const types = {"/robots.txt":"text/plain; charset=UTF-8","/sitemap.xml":"application/xml; charset=UTF-8","/favicon.svg":"image/svg+xml"};
+      const types = {"/robots.txt":"text/plain; charset=UTF-8","/sitemap.xml":"application/xml; charset=UTF-8","/llms.txt":"text/plain; charset=UTF-8","/favicon.svg":"image/svg+xml"};
       headers.set("Content-Type", types[url.pathname]);
       headers.set("X-Content-Type-Options", "nosniff");
       return new Response(request.method === "HEAD" ? null : response.body, {status: response.status, headers});
